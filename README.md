@@ -1,3 +1,6 @@
+<img width="1470" height="879" alt="Screenshot 2025-11-09 at 12 23 22" src="https://github.com/user-attachments/assets/bd5925f5-1605-4d43-96ba-c573db41037f" />
+
+
 # 🎓 Scholarship Finder System
 
 A comprehensive MERN stack application that helps students find and apply for scholarships while enabling scholarship providers to post and manage their offerings.
