@@ -47,14 +47,14 @@ Before running this application, make sure you have the following installed:
 
 ## 🚀 Quick Start
 
-### 1. Clone the Repository
+### Step 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone <your-repository-url> or download and extract Zip for this link (https://github.com/Me-Abhishek-patel/Scholarship-Management-Project/archive/refs/heads/main.zip)
 cd scholarship-finder
 ```
 
-### 2. Environment Configuration
+### Step 2. Environment Configuration (Optional)
 
 Create a `.env` file in the root directory (optional - defaults will work):
 
@@ -69,7 +69,7 @@ NODE_ENV=development
 REACT_APP_API_URL=http://localhost:5000/api
 ```
 
-### 3. Start the Application
+### Step 3. Start the Application
 
 ```bash
 # Build and start all services
@@ -79,13 +79,13 @@ docker-compose up --build
 docker-compose up --build -d
 ```
 
-### 4. Access the Application
+### Step 4. Access the Application
 
 - **Frontend:** http://localhost:3000
 - **Backend API:** http://localhost:5000/api
 - **Database:** MongoDB runs on localhost:27017
 
-### 5. Stop the Application
+### Step 5. Stop the Application
 
 ```bash
 # Stop all services
