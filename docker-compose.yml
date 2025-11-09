@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: scholarship_db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: scholarship_finder
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - scholarship_network
+
+  backend:
+    build: ./backend
+    container_name: scholarship_backend
+    restart: unless-stopped
+    ports:
+      - "8000:5000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/scholarship_finder
+      - JWT_SECRET=your_jwt_secret_key_here
+      - PORT=5000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - scholarship_network
+
+  frontend:
+    build: ./frontend
+    container_name: scholarship_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - scholarship_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  mongodb_data:
+
+networks:
+  scholarship_network:
+    driver: bridge 
